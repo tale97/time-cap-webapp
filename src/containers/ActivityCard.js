@@ -2,6 +2,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
+import StopWatch from "./StopWatch";
 import "../styles/ActivityCard.css";
 
 class ActivityCard extends React.Component {
@@ -18,7 +19,7 @@ class ActivityCard extends React.Component {
           <br />
           {`Goal/Limit | Time | Period`}
         </CardContent>
-        <Button>Start</Button>
+        <StopWatch />
       </Card>
     );
   }

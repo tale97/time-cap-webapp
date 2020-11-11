@@ -10,10 +10,9 @@ class ActivityCards extends React.Component {
 
   render() {
     const { activities } = this.props;
-    console.log(`DEBUG ${activities}`);
-    const activityCardList = activities.map((activity) => {
+    const activityCardList = activities.map((activity, idx) => {
       return (
-        <Grid item>
+        <Grid item key={idx}>
           <ActivityCard activity={activity} />
         </Grid>
       );
