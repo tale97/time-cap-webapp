@@ -17,6 +17,13 @@ Here's the [link to the web app](https://tale97.github.io/time-cap-webapp/) so y
   - HTML & CSS
   - JavaScript
   - SASS
+  - Redux
+- **Backend**
+
+  - JavaScript
+  - ExpressJS
+  - NodeJS
+
 - **Service**
   - GitHub
 
