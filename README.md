@@ -8,8 +8,6 @@ This is an attempt at making a clone of the amazing mobile app called 'Timecap.'
 
 Here's the [link to the web app](https://tale97.github.io/time-cap-webapp/) so you can try it for yourself!
 
-## How to Use It
-
 ## Technologies used
 
 - **Frontend**
