@@ -13,19 +13,26 @@ Here's the [link to the web app](https://tale97.github.io/time-cap-webapp/) so y
 ## Technologies used
 
 - **Frontend**
+
   - React
   - HTML & CSS
   - JavaScript
   - SASS
   - Redux
+
 - **Backend**
 
   - JavaScript
   - ExpressJS
   - NodeJS
 
+- **Database**
+
+  - PostgreSQL
+
 - **Service**
   - GitHub
+  - Heroku
 
 ## About The Project
 
