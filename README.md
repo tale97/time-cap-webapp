@@ -34,12 +34,6 @@ Here's the [link to the web app](https://tale97.github.io/time-cap-webapp/) so y
   - GitHub
   - Heroku
 
-## About The Project
-
-## Some Features
-
-## Potential Upcoming Features
-
 ## Setup
 
 ### `npm install`
