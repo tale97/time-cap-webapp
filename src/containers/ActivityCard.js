@@ -1,28 +1,16 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import StopWatch from "./StopWatch";
-import "../styles/ActivityCard.css";
+import "../styles/ActivityCard.scss";
 
-class ActivityCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { activity } = this.props;
-    return (
-      <Card className="activity-card">
-        <CardContent className="card-content">
-          {activity}
-          <br />
-          {`Goal/Limit | Time | Period`}
-        </CardContent>
+export default function ActivityCard(props) {
+  return (
+    <div className="activity-card">
+      <div className="activity-card-title">{props.activity}</div>
+      <div className="activity-card-subheadline">{"Goal . 5m . Everyday"}</div>
+      <div className="activity-card-empty-space"></div>
+      <div className="activity-card-timer">
         <StopWatch />
-      </Card>
-    );
-  }
+      </div>
+    </div>
+  );
 }
-
-export default ActivityCard;

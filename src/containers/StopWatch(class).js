@@ -1,22 +1,10 @@
 // https://medium.com/@peterjd42/building-timers-in-react-stopwatch-and-countdown-bc06486560a2
 
 import React, { Component } from "react";
-import "../styles/ActivityCard.scss";
-import { IconButton, withStyles } from "@material-ui/core";
+import "../styles/App.scss";
+import { IconButton } from "@material-ui/core";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
-import TimeProgressBar from "./TimeProgressBar";
-
-const styles = (theme) => ({
-  buttonIcon: {
-    height: 60,
-    width: 60,
-  },
-  button: {
-    height: 69,
-    width: 69,
-  },
-});
 
 class StopWatch extends Component {
   state = {
@@ -35,26 +23,35 @@ class StopWatch extends Component {
       this.setState({
         timerTime: Date.now() - this.state.timerStart,
       });
+      console.log(`timerTimer ${this.state.timerTime}`);
     }, 1000);
   };
 
   stopTimer = () => {
     this.setState({ timerOn: false });
-    clearInterval(this.timer);
+    clearInterval(this.timer); // ???
   };
 
-  setTimerControl = (classes) => {
+  setTimerControl = () => {
     const { timerOn } = this.state;
+    const buttonStyle = {
+      width: 69,
+      heigth: 69,
+    };
     if (timerOn === true) {
       return (
-        <IconButton className={classes.button} onClick={this.stopTimer}>
-          <PauseCircleFilledIcon className={classes.buttonIcon} />
+        <IconButton
+          style={buttonStyle}
+          iconStyle={buttonStyle}
+          onClick={this.stopTimer}
+        >
+          <PauseCircleFilledIcon />
         </IconButton>
       );
     } else {
       return (
-        <IconButton onClick={this.startTimer} className={classes.button}>
-          <PlayCircleFilledIcon className={classes.buttonIcon} />
+        <IconButton onClick={this.startTimer}>
+          <PlayCircleFilledIcon />
         </IconButton>
       );
     }
@@ -62,20 +59,18 @@ class StopWatch extends Component {
 
   render() {
     const { timerTime } = this.state;
-    const { classes } = this.props;
     let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
 
     return (
       <div className="stopwatch">
-        <div className="stopwatch-button">{this.setTimerControl(classes)}</div>
-        <div className="stopwatch-time">
+        <div className="stopwatch-display">
           {hours}:{minutes}:{seconds}
-          <TimeProgressBar />
         </div>
+        {this.setTimerControl()}
       </div>
     );
   }
 }
-export default withStyles(styles, { withTheme: true })(StopWatch);
+export default StopWatch;

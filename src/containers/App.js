@@ -1,6 +1,7 @@
 import React from "react";
-import "../styles/App.css";
+import "../styles/App.scss";
 import ActivityCards from "./ActivityCards";
+import AppBarTop from "./AppBarTop";
 import AppBarBottom from "./AppBarBottom";
 import Grid from "@material-ui/core/Grid";
 
@@ -19,8 +20,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <Grid className="App" container justify="center" spacing="2">
-        <Grid className="nav-bar" item></Grid>
+      <Grid
+        className="App"
+        direction="column"
+        container
+        justify="center"
+        spacing="2"
+      >
+        <Grid className="nav-bar" item>
+          <AppBarTop />
+        </Grid>
         <Grid className="date-bar" item></Grid>
         <Grid className="tag-bar" item></Grid>
         <Grid className="cards-area" item>

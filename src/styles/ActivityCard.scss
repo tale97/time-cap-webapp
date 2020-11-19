@@ -1,0 +1,46 @@
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  background: teal;
+  height: 190px;
+  width: 200px;
+  border-radius: 6.9px;
+}
+
+.activity-card-title {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0 0 20px;
+}
+
+.activity-card-subheadline {
+  font-size: 12px;
+  color: #ffffffcb;
+  margin-left: 20px;
+}
+
+.activity-card-empty-space {
+  flex: 1;
+}
+
+.activity-card-timer {
+}
+
+.stopwatch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px 11px 11px;
+}
+
+.stopwatch-time {
+  flex: 1;
+  color: #ffffffcb;
+}
+
+.stopwatch-progress-bar {
+  padding-top: 6px;
+  margin-top: 6px;
+  border-radius: 6px;
+}

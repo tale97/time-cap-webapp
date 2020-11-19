@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ActivityCard.css";
+import "../styles/ActivityCard.scss";
 import Grid from "@material-ui/core/Grid";
 import ActivityCard from "./ActivityCard";
 
