@@ -1,16 +1,22 @@
 @import "./variables.scss";
 
 .activity-specs-title {
-  margin-left: 30px;
-  font-size: 16px;
+  margin-left: 35px;
   margin-bottom: 10px;
+  margin-top: 16px;
+  font-size: 16px;
 }
+
+.activity-specs-configuration {
+  margin-left: 30px;
+}
+
 .CardTypeCreation {
   display: flex;
-  width: 410px;
-  margin-left: 30px;
+  width: 420px;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .CardTypeCreation > div {
@@ -19,12 +25,13 @@
   border-radius: 10px;
   width: 200px;
   padding: 10px;
-
   display: flex;
+  margin: 5px;
 }
 
 .radio-button {
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .radio-text {
@@ -36,4 +43,33 @@
 .CardCreationDialog-type.checked {
   color: white;
   background: $blue;
+}
+
+.CardCreationDialog-type:hover {
+  cursor: pointer;
+  // box-shadow: 0 0 0 2px $blue;
+}
+
+.CardCreationDialog-upper-empty-space {
+  height: 69px;
+}
+
+.input-field {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 7px;
+  background: $neutral-gray;
+  border: 2px solid #e3e5e5;
+  width: 410px;
+  outline: 0;
+  font-size: 16px;
+}
+
+.input-field:hover {
+  border: 2px solid $blue;
+}
+
+.input-field:focus {
+  border: 2px solid $blue;
+  caret-color: $blue;
 }
