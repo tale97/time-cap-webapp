@@ -20,6 +20,11 @@
   width: 500px;
 }
 
+.cardType-content:hover {
+  background: #efefef;
+  cursor: pointer;
+}
+
 .cardType-text {
   flex: 13;
   padding-left: 10px;

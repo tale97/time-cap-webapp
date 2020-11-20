@@ -12,8 +12,8 @@ import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
-    height: 50,
-    width: 50,
+    height: 30,
+    width: 30,
   },
 }));
 
@@ -47,19 +47,19 @@ export default function CardTypeSelectDialog(props) {
 
   const cardTypeList = [
     {
-      icon: <TimerIcon className="tracking-type-icon" />,
+      icon: <TimerIcon className={classes.icon} />,
       iconColor: "blue",
       title: "Time tracking activity",
       subtitle: "Track time for your goals or activities you want to limit.",
     },
     {
-      icon: <CheckBoxIcon />,
+      icon: <CheckBoxIcon className={classes.icon} />,
       iconColor: "green",
       title: "Check off activity",
       subtitle: "For activities you do once every period",
     },
     {
-      icon: <ExposurePlus1Icon />,
+      icon: <ExposurePlus1Icon className={classes.icon} />,
       iconColor: "yellow",
       title: "Count activity",
       subtitle: "For activities you do multiple times every period",
