@@ -2,30 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 380px;
+  height: 280px;
+  margin: 0 20px 0 20px;
 }
 
 .card-type-select-dialog-content > div {
   border: 1px solid #d4d4d4;
   padding: 10px;
-  font-size: 17px;
-  font-weight: bold;
   border-radius: 8px;
   background: #fafafa;
-}
-
-.card-type-select-dialog-content > div > div {
-  margin-top: 5px;
-  font-size: 14px;
-  font-weight: normal;
-}
-.time-tracking-activity {
-}
-
-.check-off-activity {
-}
-
-.count-activity {
 }
 
 .cardType-content {
@@ -33,11 +18,11 @@
   justify-content: space-evenly;
   align-items: center;
   width: 500px;
-  background: red;
 }
 
 .cardType-text {
   flex: 13;
+  padding-left: 10px;
 }
 
 .cardType-title {
@@ -49,9 +34,39 @@
   margin-top: 4px;
   font-size: 14px;
 }
+
 .cardType-icon {
   flex: 2;
+  // below used to center icon
+  display: flex;
+  justify-content: center;
 }
+
 .cardType-endIcon {
   flex: 1;
+  // below used to center icon
+  display: flex;
+  justify-content: center;
+}
+
+.blue {
+  color: #139bbd;
+}
+.green {
+  color: #64c027;
+}
+.yellow {
+  color: #e99c0e;
+}
+
+.dialog-title {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 40px 20px 0 20px;
+  text-align: center;
+}
+
+.tracking-type-icon {
+  height: 50px;
+  width: 50px;
 }

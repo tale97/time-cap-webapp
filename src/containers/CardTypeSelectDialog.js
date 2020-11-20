@@ -2,36 +2,41 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
+import { makeStyles } from "@material-ui/core/styles";
 import "../styles/CardTypeSelectDialog.scss";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import TimerIcon from "@material-ui/icons/Timer";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
+
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    height: 50,
+    width: 50,
+  },
+}));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function CardTypeSelectDialog(props) {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = (props) => {
-    setOpen(true);
-    props.openCardTypeSelectDialog();
-  };
+  const classes = useStyles();
 
   const handleClose = () => {
     props.closeCardTypeSelectDialog();
-    setOpen(false);
   };
 
-  const cardType = (icon, title, subtitle) => {
+  const cardType = (cardTypeObject) => {
     return (
       <div className="cardType-content">
-        <div className="cardType-icon">{icon}</div>
+        <div className={`cardType-icon ${cardTypeObject.iconColor}`}>
+          {cardTypeObject.icon}
+        </div>
         <div className="cardType-text">
-          <div className="cardType-title">{title}</div>
-          <div className="cardType-subtitle">{subtitle}</div>
+          <div className="cardType-title">{cardTypeObject.title}</div>
+          <div className="cardType-subtitle">{cardTypeObject.subtitle}</div>
         </div>
         <div className="cardType-endIcon">
           <ArrowForwardIosIcon />
@@ -40,16 +45,22 @@ export default function CardTypeSelectDialog(props) {
     );
   };
 
-  const cardTypeText = [
+  const cardTypeList = [
     {
+      icon: <TimerIcon className="tracking-type-icon" />,
+      iconColor: "blue",
       title: "Time tracking activity",
       subtitle: "Track time for your goals or activities you want to limit.",
     },
     {
+      icon: <CheckBoxIcon />,
+      iconColor: "green",
       title: "Check off activity",
       subtitle: "For activities you do once every period",
     },
     {
+      icon: <ExposurePlus1Icon />,
+      iconColor: "yellow",
       title: "Count activity",
       subtitle: "For activities you do multiple times every period",
     },
@@ -64,28 +75,12 @@ export default function CardTypeSelectDialog(props) {
       aria-labelledby="alert-dialog-slide-title"
       aria-describedby="alert-dialog-slide-description"
     >
-      <DialogTitle id="alert-dialog-slide-title">{"Create"}</DialogTitle>
-      <DialogContent className="card-type-select-dialog-content">
-        {cardType("ICON", cardTypeText[0].title, cardTypeText[0].subtitle)}
-        <div className="time-tracking-activity">
-          Time tracking activity
-          <div className="subtitle">
-            Track time for your goals or activites you want to limit.
-          </div>
-        </div>
-        <div className="check-off-activity">
-          Check off activity
-          <div className="subtitle">
-            For activities you do once every period
-          </div>
-        </div>
-        <div className="count-activity">
-          Count activity
-          <div className="subtitle">
-            For activities you do multiple times every period
-          </div>
-        </div>
-      </DialogContent>
+      <div className="dialog-title">Create</div>
+      <div className="card-type-select-dialog-content">
+        {cardType(cardTypeList[0])}
+        {cardType(cardTypeList[1])}
+        {cardType(cardTypeList[2])}
+      </div>
       <DialogActions>
         <Button onClick={handleClose} color="primary">
           Cancel
