@@ -1,0 +1,39 @@
+@import "./variables.scss";
+
+.activity-specs-title {
+  margin-left: 30px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.CardTypeCreation {
+  display: flex;
+  width: 410px;
+  margin-left: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CardTypeCreation > div {
+  background: $neutral-gray;
+  color: $text-color;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+
+  display: flex;
+}
+
+.radio-button {
+  margin-right: 10px;
+}
+
+.radio-text {
+  display: flex;
+  align-items: center;
+}
+
+// interesting, seems like joining classNames increase specificity, and overwrite the css properties inherited from parent container
+.CardCreationDialog-type.checked {
+  color: white;
+  background: $blue;
+}

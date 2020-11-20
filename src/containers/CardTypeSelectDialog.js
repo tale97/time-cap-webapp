@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -9,6 +9,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import TimerIcon from "@material-ui/icons/Timer";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
+import CardCreationDialog from "./CardCreationDialog";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -23,14 +24,25 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function CardTypeSelectDialog(props) {
   const classes = useStyles();
+  const [isCardCreationDialogOpen, setIsOpenCardCreationDialog] = useState(
+    false
+  );
 
-  const handleClose = () => {
+  const handleCloseDialog = () => {
     props.closeCardTypeSelectDialog();
+  };
+
+  const openCardCreationDialog = () => {
+    setIsOpenCardCreationDialog(true);
+  };
+
+  const closeCardCreationDialog = () => {
+    setIsOpenCardCreationDialog(false);
   };
 
   const cardType = (cardTypeObject) => {
     return (
-      <div className="cardType-content">
+      <div className="cardType-content" onClick={openCardCreationDialog}>
         <div className={`cardType-icon ${cardTypeObject.iconColor}`}>
           {cardTypeObject.icon}
         </div>
@@ -67,25 +79,31 @@ export default function CardTypeSelectDialog(props) {
   ];
 
   return (
-    <Dialog
-      open={props.isDialogOpen}
-      TransitionComponent={Transition}
-      keepMounted
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-slide-title"
-      aria-describedby="alert-dialog-slide-description"
-    >
-      <div className="dialog-title">Create</div>
-      <div className="card-type-select-dialog-content">
-        {cardType(cardTypeList[0])}
-        {cardType(cardTypeList[1])}
-        {cardType(cardTypeList[2])}
-      </div>
-      <DialogActions>
-        <Button onClick={handleClose} color="primary">
-          Cancel
-        </Button>
-      </DialogActions>
-    </Dialog>
+    <div>
+      <Dialog
+        open={props.isDialogOpen}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleCloseDialog}
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <div className="dialog-title">Create</div>
+        <div className="card-type-select-dialog-content">
+          {cardType(cardTypeList[0])}
+          {cardType(cardTypeList[1])}
+          {cardType(cardTypeList[2])}
+        </div>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <CardCreationDialog
+        isCardCreationDialogOpen={isCardCreationDialogOpen}
+        closeCardCreationDialog={closeCardCreationDialog}
+      />
+    </div>
   );
 }
