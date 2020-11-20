@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,6 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import CardTypeSelectDialog from "./CardTypeSelectDialog";
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -42,9 +43,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AppBarBottom(props) {
   const classes = useStyles();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const handleAddCard = () => {
     props.addActivity();
   };
+
+  const openCardTypeSelectDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const closeCardTypeSelectDialog = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -57,7 +69,7 @@ export default function AppBarBottom(props) {
             color="secondary"
             aria-label="add"
             className={classes.fabButton}
-            onClick={handleAddCard}
+            onClick={openCardTypeSelectDialog}
           >
             <AddIcon />
           </Fab>
@@ -70,6 +82,11 @@ export default function AppBarBottom(props) {
           </IconButton>
         </Toolbar>
       </AppBar>
+      <CardTypeSelectDialog
+        isDialogOpen={isDialogOpen}
+        openCardTypeSelectDialog={openCardTypeSelectDialog}
+        closeCardTypeSelectDialog={closeCardTypeSelectDialog}
+      />
     </React.Fragment>
   );
 }

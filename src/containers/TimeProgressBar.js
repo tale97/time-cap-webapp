@@ -1,15 +1,7 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-const useStyles = makeStyles({
-  root: {
-    width: "100%",
-  },
-});
-
 export default function TimeProgressBar() {
-  const classes = useStyles();
   const [progress, setProgress] = React.useState(0);
 
   React.useEffect(() => {
@@ -29,12 +21,10 @@ export default function TimeProgressBar() {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <LinearProgress
-        className="stopwatch-progress-bar"
-        variant="determinate"
-        value={progress}
-      />
-    </div>
+    <LinearProgress
+      className="stopwatch-progress-bar"
+      variant="determinate"
+      value={progress}
+    />
   );
 }

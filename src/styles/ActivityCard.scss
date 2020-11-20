@@ -11,13 +11,13 @@
   color: white;
   font-size: 20px;
   font-weight: bold;
-  margin: 15px 0 0 20px;
+  margin: 15px 0 0 16px;
 }
 
 .activity-card-subheadline {
   font-size: 12px;
   color: #ffffffcb;
-  margin-left: 20px;
+  margin-left: 16px;
 }
 
 .activity-card-empty-space {
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 20px 11px 11px;
+  margin: 0 16px 10px 10px;
 }
 
 .stopwatch-time {
@@ -40,7 +40,8 @@
 }
 
 .stopwatch-progress-bar {
-  padding-top: 6px;
-  margin-top: 6px;
+  padding-top: 5px; // ?
+  margin-top: 2px;
   border-radius: 6px;
+  background: white;
 }

@@ -20,23 +20,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <Grid
-        className="App"
-        direction="column"
-        container
-        justify="center"
-        spacing="2"
-      >
-        <Grid className="nav-bar" item>
-          <AppBarTop />
+      <div>
+        <Grid
+          container
+          className="App"
+          direction="column"
+          justify="center"
+          spacing="2"
+        >
+          <Grid className="nav-bar" item>
+            <AppBarTop />
+          </Grid>
+          <Grid className="date-bar" item></Grid>
+          <Grid className="tag-bar" item></Grid>
+          <Grid className="cards-area" item>
+            <ActivityCards activities={this.state.activities} />
+          </Grid>
+
+          <AppBarBottom addActivity={this.addActivity} />
         </Grid>
-        <Grid className="date-bar" item></Grid>
-        <Grid className="tag-bar" item></Grid>
-        <Grid className="cards-area" item>
-          <ActivityCards activities={this.state.activities} />
-        </Grid>
-        <AppBarBottom addActivity={this.addActivity} />
-      </Grid>
+      </div>
     );
   }
 }

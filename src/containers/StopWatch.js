@@ -6,15 +6,17 @@ import { IconButton, withStyles } from "@material-ui/core";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
 import TimeProgressBar from "./TimeProgressBar";
+import StyledTimeProgressBar from "./StyledTimeProgressBar";
 
 const styles = (theme) => ({
   buttonIcon: {
-    height: 60,
-    width: 60,
+    height: 50,
+    width: 50,
+    color: "white",
   },
   button: {
-    height: 69,
-    width: 69,
+    height: 54,
+    width: 54,
   },
 });
 
