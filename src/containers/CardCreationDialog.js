@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -40,17 +40,6 @@ export default function CardCreationDialog({
   const [color, setColor] = useState(null);
   const [duration, setDuration] = useState(null);
   const [period, setPeriod] = useState(null);
-  // useEffect(() => {
-  //   console.log("changing");
-  //   const newCardSpecification = {
-  //     type: type,
-  //     name: name,
-  //     color: color,
-  //     duration: duration,
-  //     period: period,
-  //   };
-  //   addActivityCard(newCardSpecification);
-  // }, [addActivityCard, type, name, color, duration, period]);
 
   const activitySpecifics = [
     {
@@ -93,7 +82,6 @@ export default function CardCreationDialog({
   };
 
   const onClickingSaveButton = () => {
-    closeCardCreationDialog();
     const newCardSpecification = {
       type: type,
       name: name,
@@ -102,6 +90,7 @@ export default function CardCreationDialog({
       period: period,
     };
     addActivityCard(newCardSpecification);
+    closeCardCreationDialog();
   };
 
   return (

@@ -7,7 +7,7 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
 import TimeProgressBar from "./TimeProgressBar";
 
-const styles = (theme) => ({
+const styles = () => ({
   buttonIcon: {
     height: 50,
     width: 50,
@@ -36,7 +36,7 @@ class StopWatch extends Component {
       this.setState({
         timerTime: Date.now() - this.state.timerStart,
       });
-    }, 1000);
+    }, 50);
   };
 
   stopTimer = () => {
@@ -63,17 +63,19 @@ class StopWatch extends Component {
 
   render() {
     const { timerTime } = this.state;
-    const { classes } = this.props;
+    const { classes, duration } = this.props;
     let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
+
+    const timerTimeInSecond = timerTime / 1000;
 
     return (
       <div className="stopwatch">
         <div className="stopwatch-button">{this.setTimerControl(classes)}</div>
         <div className="stopwatch-time">
           {hours}:{minutes}:{seconds}
-          <TimeProgressBar />
+          <TimeProgressBar duration={duration} timerTime={timerTimeInSecond} />
         </div>
       </div>
     );

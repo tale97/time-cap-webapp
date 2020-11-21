@@ -17,7 +17,7 @@ export default function ActivityCard({ activitySpecification }) {
       )} • ${period}`}</div>
       <div className="activity-card-empty-space"></div>
       <div className="activity-card-timer">
-        <StopWatch />
+        <StopWatch duration={duration} />
       </div>
     </div>
   );
