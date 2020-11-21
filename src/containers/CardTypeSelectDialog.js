@@ -22,18 +22,19 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CardTypeSelectDialog(props) {
+export default function CardTypeSelectDialog({
+  addActivityCard,
+  closeCardTypeSelectDialog,
+  isDialogOpen,
+}) {
   const classes = useStyles();
   const [isCardCreationDialogOpen, setIsOpenCardCreationDialog] = useState(
     false
   );
 
-  const handleCloseDialog = () => {
-    props.closeCardTypeSelectDialog();
-  };
-
   const openCardCreationDialog = () => {
     setIsOpenCardCreationDialog(true);
+    closeCardTypeSelectDialog();
   };
 
   const closeCardCreationDialog = () => {
@@ -81,10 +82,10 @@ export default function CardTypeSelectDialog(props) {
   return (
     <div>
       <Dialog
-        open={props.isDialogOpen}
+        open={isDialogOpen}
         TransitionComponent={Transition}
         keepMounted
-        onClose={handleCloseDialog}
+        onClose={closeCardTypeSelectDialog}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
@@ -95,7 +96,7 @@ export default function CardTypeSelectDialog(props) {
           {cardType(cardTypeList[2])}
         </div>
         <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
+          <Button onClick={closeCardTypeSelectDialog} color="primary">
             Cancel
           </Button>
         </DialogActions>
@@ -103,6 +104,7 @@ export default function CardTypeSelectDialog(props) {
       <CardCreationDialog
         isCardCreationDialogOpen={isCardCreationDialogOpen}
         closeCardCreationDialog={closeCardCreationDialog}
+        addActivityCard={addActivityCard}
       />
     </div>
   );

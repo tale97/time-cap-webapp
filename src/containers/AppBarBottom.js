@@ -41,13 +41,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppBarBottom(props) {
+export default function AppBarBottom({ addActivityCard }) {
   const classes = useStyles();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const handleAddCard = () => {
-    props.addActivity();
-  };
 
   const openCardTypeSelectDialog = () => {
     setIsDialogOpen(true);
@@ -86,6 +82,7 @@ export default function AppBarBottom(props) {
         isDialogOpen={isDialogOpen}
         openCardTypeSelectDialog={openCardTypeSelectDialog}
         closeCardTypeSelectDialog={closeCardTypeSelectDialog}
+        addActivityCard={addActivityCard}
       />
     </React.Fragment>
   );

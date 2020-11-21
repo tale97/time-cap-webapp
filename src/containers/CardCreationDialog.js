@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -29,13 +29,28 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CardCreationDialog(props) {
+export default function CardCreationDialog({
+  isCardCreationDialogOpen,
+  closeCardCreationDialog,
+  addActivityCard,
+}) {
   const classes = useStyles();
   const [type, setType] = useState(null);
   const [name, setName] = useState(null);
   const [color, setColor] = useState(null);
   const [duration, setDuration] = useState(null);
   const [period, setPeriod] = useState(null);
+  // useEffect(() => {
+  //   console.log("changing");
+  //   const newCardSpecification = {
+  //     type: type,
+  //     name: name,
+  //     color: color,
+  //     duration: duration,
+  //     period: period,
+  //   };
+  //   addActivityCard(newCardSpecification);
+  // }, [addActivityCard, type, name, color, duration, period]);
 
   const activitySpecifics = [
     {
@@ -60,21 +75,12 @@ export default function CardCreationDialog(props) {
     },
   ];
 
-  const newCardSpecification = {
-    type: type,
-    name: name,
-    color: color,
-    duration: duration,
-    period: period,
-  };
-
-  console.log(newCardSpecification);
-
   const createDialogSections = (activitySpecifics) => {
     return activitySpecifics.map((activitySpecific) => {
       return <div>{createDialogSection(activitySpecific)}</div>;
     });
   };
+
   const createDialogSection = (activitySpecifics) => {
     return (
       <div>
@@ -86,12 +92,24 @@ export default function CardCreationDialog(props) {
     );
   };
 
+  const onClickingSaveButton = () => {
+    closeCardCreationDialog();
+    const newCardSpecification = {
+      type: type,
+      name: name,
+      color: color,
+      duration: duration,
+      period: period,
+    };
+    addActivityCard(newCardSpecification);
+  };
+
   return (
     <div>
       <Dialog
         fullScreen
-        open={props.isCardCreationDialogOpen}
-        onClose={props.closeCardCreationDialog}
+        open={isCardCreationDialogOpen}
+        onClose={closeCardCreationDialog}
         TransitionComponent={Transition}
       >
         <AppBar className={classes.appBar}>
@@ -99,7 +117,7 @@ export default function CardCreationDialog(props) {
             <IconButton
               edge="start"
               color="inherit"
-              onClick={props.closeCardCreationDialog}
+              onClick={closeCardCreationDialog}
               aria-label="close"
             >
               <CloseIcon />
@@ -107,11 +125,7 @@ export default function CardCreationDialog(props) {
             <Typography variant="h6" className={classes.title}>
               Add activity
             </Typography>
-            <Button
-              autoFocus
-              color="inherit"
-              onClick={props.closeCardCreationDialog}
-            >
+            <Button autoFocus color="inherit" onClick={onClickingSaveButton}>
               save
             </Button>
           </Toolbar>

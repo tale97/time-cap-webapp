@@ -5,11 +5,12 @@ import ActivityCard from "./ActivityCard";
 
 class ActivityCards extends React.Component {
   render() {
-    const { activities } = this.props;
-    const activityCardList = activities.map((activity, idx) => {
+    const { activityCards } = this.props;
+    const activityCardList = activityCards.map((activityCard, idx) => {
+      const { type, name, color, duration, period } = activityCard;
       return (
         <Grid item key={idx}>
-          <ActivityCard activity={activity} />
+          <ActivityCard activity={name} activitySpecification={activityCard} />
         </Grid>
       );
     });
