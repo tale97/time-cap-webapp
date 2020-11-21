@@ -5,19 +5,33 @@ import "../styles/ColorOption.scss";
 
 export default function ActivityCard({ activitySpecification }) {
   const { type, name, color, duration, period } = activitySpecification;
+  const [isActive, setIsActive] = React.useState(false);
 
   const formatDuration = (duration) => {
     return `${duration[0]}h ${duration[1]}m ${duration[2]}s`;
   };
+
+  const setCardActiveStatus = (status) => {
+    setIsActive(status);
+  };
+
   return (
-    <div className={`activity-card background-${color}`}>
+    <div
+      className={`activity-card ${
+        isActive ? `background-${color}` : `light-background-${color}`
+      }`}
+    >
       <div className="activity-card-title">{name}</div>
       <div className="activity-card-subheadline">{`${type} • ${formatDuration(
         duration
       )} • ${period}`}</div>
       <div className="activity-card-empty-space"></div>
       <div>
-        <StopWatch duration={duration} color={color} />
+        <StopWatch
+          duration={duration}
+          color={color}
+          setIsActive={setCardActiveStatus}
+        />
       </div>
     </div>
   );

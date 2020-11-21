@@ -27,6 +27,7 @@ class StopWatch extends Component {
   };
 
   startTimer = () => {
+    this.props.setIsActive(true);
     this.setState({
       timerOn: true,
       timerTime: this.state.timerTime,
@@ -40,6 +41,7 @@ class StopWatch extends Component {
   };
 
   stopTimer = () => {
+    this.props.setIsActive(false);
     this.setState({ timerOn: false });
     clearInterval(this.timer);
   };
