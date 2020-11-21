@@ -1,0 +1,65 @@
+@import "./variables.scss";
+
+// style
+
+.color-table {
+  display: flex;
+  flex-wrap: wrap;
+  width: 410px;
+  margin-left: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 120px;
+}
+
+// colors
+
+.brown-black {
+  color: $brown-black;
+}
+.carribean-blue {
+  color: $carribean-blue;
+}
+
+.orange {
+  color: $orange;
+}
+.yellow {
+  color: $orange-yellow;
+}
+.pink {
+  color: $pink;
+}
+.pink-red {
+  color: $pink-red;
+}
+.red {
+  color: $red;
+}
+.pink-purple {
+  color: $pink-purple;
+}
+.purple {
+  color: $purple;
+}
+.deep-ocean-blue {
+  color: $deep-ocean-blue;
+}
+.ocean-blue {
+  color: $ocean-blue;
+}
+.blue-green {
+  color: $blue-green;
+}
+.green {
+  color: $green;
+}
+.skin-color {
+  color: $skin-color;
+}
+.brown {
+  color: $brown;
+}
+.black {
+  color: $black;
+}

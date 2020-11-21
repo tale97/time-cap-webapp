@@ -4,10 +4,6 @@ import Grid from "@material-ui/core/Grid";
 import ActivityCard from "./ActivityCard";
 
 class ActivityCards extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { activities } = this.props;
     const activityCardList = activities.map((activity, idx) => {

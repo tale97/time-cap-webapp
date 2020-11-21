@@ -6,7 +6,6 @@ import { IconButton, withStyles } from "@material-ui/core";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
 import TimeProgressBar from "./TimeProgressBar";
-import StyledTimeProgressBar from "./StyledTimeProgressBar";
 
 const styles = (theme) => ({
   buttonIcon: {
