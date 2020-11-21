@@ -1,7 +1,7 @@
 import React from "react";
 import RadioButtonSystem from "./RadioButtonSystem";
 
-export default function PeriodOption() {
+export default function PeriodOption({ setPeriod }) {
   const radioOptions = [
     "Every day",
     "Every week",
@@ -9,5 +9,10 @@ export default function PeriodOption() {
     "Every year",
     "Select weeks days",
   ];
-  return <RadioButtonSystem radioOptionsInString={radioOptions} />;
+  return (
+    <RadioButtonSystem
+      radioOptionsInString={radioOptions}
+      setType={setPeriod}
+    />
+  );
 }

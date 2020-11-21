@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ColorOption() {
+export default function ColorOption({ setColor }) {
   const classes = useStyles();
   const [chosenColor, setChosenColor] = useState("");
   const useCheckedColorIcon = false; // set to true for alternative choosen color icon
@@ -43,6 +43,7 @@ export default function ColorOption() {
     for (const color of colors) {
       if (classNamesArray.includes(color)) {
         setChosenColor(color);
+        setColor(color);
         return color;
       }
     }
