@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+.duration {
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+}
+
+.input-field.hour,
+.input-field.minute,
+.input-field.second {
+  width: 130px;
+}
+
+.time-input {
+  position: relative;
+}
+.unique {
+  display: block;
+  padding-right: 50px;
+}
+.unit {
+  position: absolute;
+  display: block;
+  left: 90px;
+  font-size: 16px;
+  top: 15px;
+  color: $text-color;
+}

@@ -15,6 +15,7 @@ const useStyles = makeStyles({
 export default function ColorOption() {
   const classes = useStyles();
   const [chosenColor, setChosenColor] = useState("");
+  const useCheckedColorIcon = false; // set to true for alternative choosen color icon
 
   const colors = [
     "brown-black",
@@ -36,7 +37,8 @@ export default function ColorOption() {
   ];
 
   const onClickColorCircle = (event) => {
-    const classNames = event.target.className.baseVal;
+    // interestingly, using event.target doesn't allow user to click on the outer ring of the color icon, but using event.currentTarget fix that problem
+    const classNames = event.currentTarget.className.baseVal;
     const classNamesArray = classNames.split(" ");
     for (const color of colors) {
       if (classNamesArray.includes(color)) {
@@ -48,12 +50,23 @@ export default function ColorOption() {
     return "";
   };
 
-  const colorIcons = colors.map((color) => {
-    return color === chosenColor ? (
+  const choosenColorIcon = (color) => {
+    return useCheckedColorIcon ? (
+      <CheckCircleIcon
+        className={`${classes.colorIcon} ${color}`}
+        onClick={onClickColorCircle}
+      />
+    ) : (
       <RadioButtonCheckedIcon
         className={`${classes.colorIcon} ${color}`}
         onClick={onClickColorCircle}
       />
+    );
+  };
+
+  const colorIcons = colors.map((color) => {
+    return color === chosenColor ? (
+      choosenColorIcon(color)
     ) : (
       <RadioButtonUncheckedIcon
         className={`${classes.colorIcon} ${color}`}
