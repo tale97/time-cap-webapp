@@ -62,8 +62,8 @@ class StopWatch extends Component {
   };
 
   render() {
-    const { timerTime } = this.state;
-    const { classes, duration } = this.props;
+    const { timerTime, timerOn } = this.state;
+    const { classes, duration, color } = this.props;
     let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
@@ -75,7 +75,12 @@ class StopWatch extends Component {
         <div className="stopwatch-button">{this.setTimerControl(classes)}</div>
         <div className="stopwatch-time">
           {hours}:{minutes}:{seconds}
-          <TimeProgressBar duration={duration} timerTime={timerTimeInSecond} />
+          <TimeProgressBar
+            duration={duration}
+            timerTime={timerTimeInSecond}
+            timerOn={timerOn}
+            color={color}
+          />
         </div>
       </div>
     );

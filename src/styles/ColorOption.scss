@@ -111,3 +111,7 @@
 .background-black {
   background-color: $black;
 }
+
+.background-orange.lighten {
+  background-color: lighten($orange, 12%);
+}
