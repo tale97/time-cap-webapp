@@ -7,10 +7,9 @@ class ActivityCards extends React.Component {
   render() {
     const { activityCards } = this.props;
     const activityCardList = activityCards.map((activityCard, idx) => {
-      const { type, name, color, duration, period } = activityCard;
       return (
         <Grid item key={idx}>
-          <ActivityCard activity={name} activitySpecification={activityCard} />
+          <ActivityCard activitySpecification={activityCard} />
         </Grid>
       );
     });
