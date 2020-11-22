@@ -11,6 +11,7 @@ export default function ActivityCard({
   removeActivity,
   setIsCardCreationDialogOpen,
   setTargetedActivity,
+  updateActivityRunningDuration,
 }) {
   const { type, name, color, duration, period } = activitySpecification;
   const [isActive, setIsActive] = useState(false);
@@ -19,10 +20,6 @@ export default function ActivityCard({
   const formatDuration = (duration) => {
     return `${duration[0]}h ${duration[1]}m ${duration[2]}s`;
   };
-
-  // const setCardActiveStatus = (boolean) => {
-  //   setIsActive(boolean);
-  // };
 
   const onClickDeleteButton = () => {
     removeActivity(activitySpecification);
@@ -68,6 +65,8 @@ export default function ActivityCard({
             color={color}
             setIsTimerActive={setIsActive}
             isTimerActive={isActive}
+            activitySpecification={activitySpecification}
+            updateActivityRunningDuration={updateActivityRunningDuration}
           />
         </div>
       </div>

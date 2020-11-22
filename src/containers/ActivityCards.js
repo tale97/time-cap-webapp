@@ -12,6 +12,7 @@ class ActivityCards extends React.Component {
       isCardCreationDialogOpen,
       setIsCardCreationDialogOpen,
       setTargetedActivity,
+      updateActivityRunningDuration,
     } = this.props;
 
     const activityCardList = activityCards.map((activityCard, idx) => {
@@ -24,6 +25,7 @@ class ActivityCards extends React.Component {
             isCardCreationDialogOpen={isCardCreationDialogOpen}
             setIsCardCreationDialogOpen={setIsCardCreationDialogOpen}
             setTargetedActivity={setTargetedActivity}
+            updateActivityRunningDuration={updateActivityRunningDuration}
           />
         </Grid>
       );

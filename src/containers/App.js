@@ -23,11 +23,27 @@ class App extends React.Component {
   };
 
   setTargetedActivity = (activity) => {
+    console.log("set targted activity to");
+    console.log(activity);
     this.setState({ targetedActivity: activity });
   };
 
   setIsCardCreationDialogOpen = (boolean) => {
     this.setState({ isCardCreationDialogOpen: boolean });
+  };
+
+  updateActivityRunningDuration = (activity, runningDuration) => {
+    console.log("updating running duration");
+    console.log(activity);
+    console.log(runningDuration);
+    const { activityCards } = this.state;
+    const idx = this.indexOfActivity(activity);
+    // let activityCopy = JSON.parse(JSON.stringify(activityCards[idx]))
+    // activityCopy.runningDuration = runningDuration;
+    let activityCardsCopy = JSON.parse(JSON.stringify(activityCards));
+    activityCardsCopy[idx].runningDuration = runningDuration;
+
+    this.setState({ activityCards: activityCardsCopy });
   };
 
   indexOfActivity = (activity) => {
@@ -48,18 +64,20 @@ class App extends React.Component {
     return -1;
   };
 
+  // modify the specs for a specific activity
   modifyActivity = (activity, newActivitySpecs) => {
     const { activityCards } = this.state;
     const indexOfActivity = this.indexOfActivity(activity);
 
     // https://www.freecodecamp.org/news/how-to-clone-an-array-in-javascript-1d3183468f6a/
     var activityCardsCopy = JSON.parse(JSON.stringify(activityCards));
-    console.log(activityCardsCopy);
     activityCardsCopy[indexOfActivity].name = newActivitySpecs.name;
     activityCardsCopy[indexOfActivity].type = newActivitySpecs.type;
     activityCardsCopy[indexOfActivity].color = newActivitySpecs.color;
     activityCardsCopy[indexOfActivity].duration = newActivitySpecs.duration;
     activityCardsCopy[indexOfActivity].period = newActivitySpecs.period;
+    activityCardsCopy[indexOfActivity].runningDuration =
+      newActivitySpecs.runningDuration;
 
     this.setState({ activityCards: activityCardsCopy });
   };
@@ -107,6 +125,7 @@ class App extends React.Component {
               isCardCreationDialogOpen={isCardCreationDialogOpen}
               setIsCardCreationDialogOpen={this.setIsCardCreationDialogOpen}
               setTargetedActivity={this.setTargetedActivity}
+              updateActivityRunningDuration={this.updateActivityRunningDuration}
             />
           </Grid>
 

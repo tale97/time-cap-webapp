@@ -52,21 +52,28 @@ const reformatColorString = (colorString) => {
 };
 
 export default function StopWatch(props) {
+  const {
+    duration,
+    color,
+    setIsTimerActive,
+    isTimerActive,
+    updateActivityRunningDuration,
+    activitySpecification,
+  } = props;
   const classes = useStyles(props);
-  const [seconds, setSeconds] = useState(2);
-  const { duration, color, setIsTimerActive, isTimerActive } = props;
+  const [seconds, setSeconds] = useState(activitySpecification.runningDuration);
+  // const [seconds, setSeconds] = useState(0);
 
   function startTimer() {
     setIsTimerActive(true);
   }
 
   function stopTimer() {
+    updateActivityRunningDuration(activitySpecification, seconds);
     setIsTimerActive(false);
   }
 
   useEffect(() => {
-    console.log("usingeffect");
-    console.log(seconds);
     let interval = null;
     if (isTimerActive) {
       interval = setInterval(() => {
@@ -75,10 +82,15 @@ export default function StopWatch(props) {
     } else if (!isTimerActive && seconds !== 0) {
       clearInterval(interval);
     }
-
     // clear interval every time `userEffect` runs
     return () => clearInterval(interval);
-  }, [isTimerActive, seconds]);
+  }, [
+    isTimerActive,
+    seconds,
+    activitySpecification,
+    updateActivityRunningDuration,
+    // activitySpecification.runningDuration,
+  ]);
 
   const setTimerControl = (classes) => {
     if (isTimerActive === true) {

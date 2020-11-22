@@ -71,7 +71,7 @@ export default function AppBarBottom({
             color="secondary"
             aria-label="add"
             className={classes.fabButton}
-            onClick={openCardTypeSelectDialog}
+            onClick={() => setIsDialogOpen(true)}
           >
             <AddIcon />
           </Fab>

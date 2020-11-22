@@ -84,18 +84,20 @@ export default function CardCreationDialog({
   };
 
   const onClickingSaveButton = () => {
+    console.log("saving button");
+    console.log(targetedActivity);
     const newCardSpecification = {
       type: type,
       name: name,
       color: color,
       duration: duration,
       period: period,
+      runningDuration: 0,
     };
     addActivityCard(newCardSpecification);
     setIsCardCreationDialogOpen(false);
 
     if (targetedActivity) {
-      console.log(targetedActivity);
       modifyActivity(targetedActivity, newCardSpecification);
     }
   };
