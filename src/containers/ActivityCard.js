@@ -20,9 +20,9 @@ export default function ActivityCard({
     return `${duration[0]}h ${duration[1]}m ${duration[2]}s`;
   };
 
-  const setCardActiveStatus = (status) => {
-    setIsActive(status);
-  };
+  // const setCardActiveStatus = (boolean) => {
+  //   setIsActive(boolean);
+  // };
 
   const onClickDeleteButton = () => {
     removeActivity(activitySpecification);
@@ -66,8 +66,8 @@ export default function ActivityCard({
           <StopWatch
             duration={duration}
             color={color}
-            setIsActive={setCardActiveStatus}
-            isActive={isActive}
+            setIsTimerActive={setIsActive}
+            isTimerActive={isActive}
           />
         </div>
       </div>

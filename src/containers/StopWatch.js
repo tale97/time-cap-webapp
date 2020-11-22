@@ -53,33 +53,32 @@ const reformatColorString = (colorString) => {
 
 export default function StopWatch(props) {
   const classes = useStyles(props);
-  const [runningDurationInSeconds, setRunningDurationInSeconds] = useState(0);
-  const [isTimerActive, setIsTimerActive] = useState(false);
-  const { duration, color, setIsActive, isActive } = props;
+  const [seconds, setSeconds] = useState(2);
+  const { duration, color, setIsTimerActive, isTimerActive } = props;
 
   function startTimer() {
-    setIsActive(true);
     setIsTimerActive(true);
   }
 
   function stopTimer() {
-    setIsActive(false);
     setIsTimerActive(false);
   }
 
   useEffect(() => {
+    console.log("usingeffect");
+    console.log(seconds);
     let interval = null;
     if (isTimerActive) {
       interval = setInterval(() => {
-        setRunningDurationInSeconds(
-          (runningDurationInSeconds) => runningDurationInSeconds + 1
-        );
+        setSeconds((seconds) => seconds + 1);
       }, 1000);
-    } else if (!isTimerActive && runningDurationInSeconds !== 0) {
+    } else if (!isTimerActive && seconds !== 0) {
       clearInterval(interval);
     }
+
+    // clear interval every time `userEffect` runs
     return () => clearInterval(interval);
-  }, [isTimerActive, runningDurationInSeconds]);
+  }, [isTimerActive, seconds]);
 
   const setTimerControl = (classes) => {
     if (isTimerActive === true) {
@@ -97,24 +96,22 @@ export default function StopWatch(props) {
     }
   };
 
-  let seconds = ("0" + (Math.floor(runningDurationInSeconds / 1) % 60)).slice(
-    -2
-  );
-  let minutes = ("0" + (Math.floor(runningDurationInSeconds / 60) % 60)).slice(
-    -2
-  );
-  let hours = ("0" + Math.floor(runningDurationInSeconds / 3600)).slice(-2);
+  let timerSeconds = ("0" + (Math.floor(seconds / 1) % 60)).slice(-2);
+  let timerMinutes = ("0" + (Math.floor(seconds / 60) % 60)).slice(-2);
+  let timerHours = ("0" + Math.floor(seconds / 3600)).slice(-2);
 
   return (
     <div className="stopwatch">
       <div className="stopwatch-button">{setTimerControl(classes)}</div>
       <div
-        className={`stopwatch-time ${isActive ? "white-text" : "black-text"}`}
+        className={`stopwatch-time ${
+          isTimerActive ? "white-text" : "black-text"
+        }`}
       >
-        {hours}:{minutes}:{seconds}
+        {timerHours}:{timerMinutes}:{timerSeconds}
         <TimeProgressBar
           duration={duration}
-          timerTime={runningDurationInSeconds}
+          timerTime={seconds}
           timerOn={isTimerActive}
           color={color}
           reformatColorString={reformatColorString}
