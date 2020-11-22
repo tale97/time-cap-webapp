@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -23,22 +23,19 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function CardTypeSelectDialog({
+  targetedActivity,
   addActivityCard,
+  modifyActivity,
   closeCardTypeSelectDialog,
   isDialogOpen,
+  isCardCreationDialogOpen,
+  setIsCardCreationDialogOpen,
 }) {
   const classes = useStyles();
-  const [isCardCreationDialogOpen, setIsOpenCardCreationDialog] = useState(
-    false
-  );
 
   const openCardCreationDialog = () => {
-    setIsOpenCardCreationDialog(true);
+    setIsCardCreationDialogOpen(true);
     closeCardTypeSelectDialog();
-  };
-
-  const closeCardCreationDialog = () => {
-    setIsOpenCardCreationDialog(false);
   };
 
   const cardType = (cardTypeObject) => {
@@ -102,9 +99,12 @@ export default function CardTypeSelectDialog({
         </DialogActions>
       </Dialog>
       <CardCreationDialog
-        isCardCreationDialogOpen={isCardCreationDialogOpen}
-        closeCardCreationDialog={closeCardCreationDialog}
         addActivityCard={addActivityCard}
+        modifyActivity={modifyActivity}
+        currentActivity={"attached to cardtypeselector"}
+        isCardCreationDialogOpen={isCardCreationDialogOpen}
+        setIsCardCreationDialogOpen={setIsCardCreationDialogOpen}
+        targetedActivity={targetedActivity}
       />
     </div>
   );

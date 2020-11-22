@@ -30,9 +30,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function CardCreationDialog({
-  isCardCreationDialogOpen,
-  closeCardCreationDialog,
   addActivityCard,
+  modifyActivity,
+  targetedActivity,
+  isCardCreationDialogOpen,
+  setIsCardCreationDialogOpen,
 }) {
   const classes = useStyles();
   const [type, setType] = useState(null);
@@ -90,7 +92,12 @@ export default function CardCreationDialog({
       period: period,
     };
     addActivityCard(newCardSpecification);
-    closeCardCreationDialog();
+    setIsCardCreationDialogOpen(false);
+
+    if (targetedActivity) {
+      console.log(targetedActivity);
+      modifyActivity(targetedActivity, newCardSpecification);
+    }
   };
 
   return (
@@ -98,7 +105,7 @@ export default function CardCreationDialog({
       <Dialog
         fullScreen
         open={isCardCreationDialogOpen}
-        onClose={closeCardCreationDialog}
+        onClose={() => setIsCardCreationDialogOpen(false)}
         TransitionComponent={Transition}
       >
         <AppBar className={classes.appBar}>
@@ -106,7 +113,7 @@ export default function CardCreationDialog({
             <IconButton
               edge="start"
               color="inherit"
-              onClick={closeCardCreationDialog}
+              onClick={() => setIsCardCreationDialogOpen(false)}
               aria-label="close"
             >
               <CloseIcon />

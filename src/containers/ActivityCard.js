@@ -9,6 +9,8 @@ import CloseIcon from "@material-ui/icons/Close";
 export default function ActivityCard({
   activitySpecification,
   removeActivity,
+  setIsCardCreationDialogOpen,
+  setTargetedActivity,
 }) {
   const { type, name, color, duration, period } = activitySpecification;
   const [isActive, setIsActive] = useState(false);
@@ -26,6 +28,13 @@ export default function ActivityCard({
     removeActivity(activitySpecification);
   };
 
+  const onClickEditButton = () => {
+    setIsCardCreationDialogOpen(true);
+    setTargetedActivity(activitySpecification);
+    setIsOpenCardMenu(false);
+  };
+
+  // normal Activity Card Interface
   const Card = () => {
     return (
       <div
@@ -65,32 +74,37 @@ export default function ActivityCard({
     );
   };
 
+  // Activity Card Menu Interface
   const CardMenu = () => {
     return (
-      <div
-        className={`activity-card ${
-          isActive ? `background-${color}` : `light-background-${color}`
-        }`}
-      >
-        <div className="title-and-button">
-          <div
-            className={`activity-card-title ${
-              isActive ? "white-text" : "black-text"
-            }`}
-          ></div>
-          <div className="activity-card-button">
-            <IconButton>
-              <CloseIcon onClick={() => setIsOpenCardMenu(false)} />
-            </IconButton>
+      <div className="activity-card-and-dialog">
+        <div
+          className={`activity-card ${
+            isActive ? `background-${color}` : `light-background-${color}`
+          }`}
+        >
+          <div className="title-and-button">
+            <div
+              className={`activity-card-title ${
+                isActive ? "white-text" : "black-text"
+              }`}
+            ></div>
+            <div className="activity-card-button">
+              <IconButton>
+                <CloseIcon onClick={() => setIsOpenCardMenu(false)} />
+              </IconButton>
+            </div>
           </div>
-        </div>
-        <div className="activity-card-empty-space activity-card-menu">
-          <div className="edit-button">Edit</div>
-          <div className="delete-button" onClick={onClickDeleteButton}>
-            Delete
+          <div className="activity-card-empty-space activity-card-menu">
+            <div className="edit-button" onClick={onClickEditButton}>
+              Edit
+            </div>
+            <div className="delete-button" onClick={onClickDeleteButton}>
+              Delete
+            </div>
           </div>
+          <div className="activity-card-empty-bottom-space"></div>
         </div>
-        <div className="activity-card-empty-bottom-space"></div>
       </div>
     );
   };
