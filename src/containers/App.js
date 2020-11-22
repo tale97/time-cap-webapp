@@ -13,16 +13,24 @@ class App extends React.Component {
     };
   }
 
-  componenDidUpdate(prevProps, prevState) {
-    if (this.state.activityCards !== prevState.activityCards) {
-      console.log(`test ${this.state.activityCards}`);
-    }
-  }
-
   addActivityCard = (activityCard) => {
     this.setState({
       activityCards: this.state.activityCards.concat([activityCard]),
     });
+  };
+
+  removeActivity = (activity) => {
+    const { activityCards } = this.state;
+    var newActivityCards = activityCards.filter((card) => {
+      return !(
+        card.name === activity.name &&
+        card.type === activity.type &&
+        card.period === activity.period &&
+        card.color === activity.color &&
+        card.duration === activity.duration
+      );
+    });
+    this.setState({ activityCards: newActivityCards });
   };
 
   render() {
@@ -41,7 +49,10 @@ class App extends React.Component {
           <Grid className="date-bar" item></Grid>
           <Grid className="tag-bar" item></Grid>
           <Grid className="cards-area" item>
-            <ActivityCards activityCards={this.state.activityCards} />
+            <ActivityCards
+              activityCards={this.state.activityCards}
+              removeActivity={this.removeActivity}
+            />
           </Grid>
 
           <AppBarBottom addActivityCard={this.addActivityCard} />

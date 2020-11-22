@@ -8,11 +8,16 @@
   border-radius: 6.9px;
 }
 
+.title-and-button {
+  display: flex;
+}
+
 .activity-card-title {
   color: white;
   font-size: 20px;
   font-weight: bold;
   margin: 15px 0 0 16px;
+  flex: 1;
 }
 
 .activity-card-subheadline {
@@ -53,4 +58,32 @@
 
 .white-text {
   color: white;
+}
+
+.activity-card-empty-bottom-space {
+  height: 48px;
+}
+
+// card menu interface
+.activity-card-menu.activity-card-empty-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 15px;
+  color: $text-color;
+}
+
+.activity-card-menu > div {
+  text-align: center;
+  width: 69px;
+}
+
+.activity-card-menu > div:hover {
+  cursor: pointer;
+  // border: 2px solid $text-color;
+  box-shadow: 0 0 0 2px $text-color;
+  border-radius: 5px;
+  text-align: center;
+  width: 69px;
 }

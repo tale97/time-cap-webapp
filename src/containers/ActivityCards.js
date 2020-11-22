@@ -5,11 +5,14 @@ import ActivityCard from "./ActivityCard";
 
 class ActivityCards extends React.Component {
   render() {
-    const { activityCards } = this.props;
+    const { activityCards, removeActivity } = this.props;
     const activityCardList = activityCards.map((activityCard, idx) => {
       return (
         <Grid item key={idx}>
-          <ActivityCard activitySpecification={activityCard} />
+          <ActivityCard
+            activitySpecification={activityCard}
+            removeActivity={removeActivity}
+          />
         </Grid>
       );
     });
