@@ -19,6 +19,7 @@
   font-size: 12px;
   color: #ffffffcb;
   margin-left: 16px;
+  letter-spacing: 0px;
 }
 
 .activity-card-empty-space {
@@ -35,6 +36,7 @@
 .stopwatch-time {
   flex: 1;
   color: #ffffffcb;
+  margin-left: 5px;
 }
 
 .stopwatch-progress-bar {
@@ -46,5 +48,9 @@
 }
 
 .black-text {
-  color: $text-color !important;
+  color: $text-color;
+}
+
+.white-text {
+  color: white;
 }

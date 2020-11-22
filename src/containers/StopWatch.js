@@ -108,7 +108,9 @@ export default function StopWatch(props) {
   return (
     <div className="stopwatch">
       <div className="stopwatch-button">{setTimerControl(classes)}</div>
-      <div className={`stopwatch-time ${isActive ? "" : "black-text"}`}>
+      <div
+        className={`stopwatch-time ${isActive ? "white-text" : "black-text"}`}
+      >
         {hours}:{minutes}:{seconds}
         <TimeProgressBar
           duration={duration}

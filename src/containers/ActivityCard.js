@@ -21,11 +21,17 @@ export default function ActivityCard({ activitySpecification }) {
         isActive ? `background-${color}` : `light-background-${color}`
       }`}
     >
-      <div className={`activity-card-title ${isActive ? "" : "black-text"}`}>
+      <div
+        className={`activity-card-title ${
+          isActive ? "white-text" : "black-text"
+        }`}
+      >
         {name}
       </div>
       <div
-        className={`activity-card-subheadline ${isActive ? "" : "black-text"}`}
+        className={`activity-card-subheadline ${
+          isActive ? "white-text" : "black-text"
+        }`}
       >{`${type} • ${formatDuration(duration)} • ${period}`}</div>
       <div className="activity-card-empty-space"></div>
       <div>

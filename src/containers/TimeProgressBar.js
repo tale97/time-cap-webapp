@@ -9,23 +9,27 @@ const useStyles = makeStyles({
     // backgroundColor: "#F29D68",
     backgroundColor: (props) => {
       const color = props.reformatColorString(props.color);
-      return LightenDarkenColor(COLORS[color], 30);
+      return LightenDarkenColor(COLORS[color], 50);
     },
+    height: 6,
   },
   barColorPrimary: {
     backgroundColor: "#fff",
+    borderRadius: 50,
   },
   colorSecondary: {
     backgroundColor: (props) => {
       const color = props.reformatColorString(props.color);
-      return LightenDarkenColor(COLORS[color], 30);
+      return LightenDarkenColor(COLORS[color], 120);
     },
+    height: 6,
   },
   barColorSecondary: {
     backgroundColor: (props) => {
       const color = props.reformatColorString(props.color);
       return COLORS[color];
     },
+    borderRadius: 50,
   },
 });
 
