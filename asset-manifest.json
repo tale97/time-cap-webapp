@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/github.io/time-cap-webbapp/static/css/main.22aa8e7d.chunk.css",
+    "main.js": "/github.io/time-cap-webbapp/static/js/main.21bf4a69.chunk.js",
+    "main.js.map": "/github.io/time-cap-webbapp/static/js/main.21bf4a69.chunk.js.map",
+    "runtime-main.js": "/github.io/time-cap-webbapp/static/js/runtime-main.57e09f36.js",
+    "runtime-main.js.map": "/github.io/time-cap-webbapp/static/js/runtime-main.57e09f36.js.map",
+    "static/js/2.4ff0172e.chunk.js": "/github.io/time-cap-webbapp/static/js/2.4ff0172e.chunk.js",
+    "static/js/2.4ff0172e.chunk.js.map": "/github.io/time-cap-webbapp/static/js/2.4ff0172e.chunk.js.map",
+    "static/js/3.2d135ef2.chunk.js": "/github.io/time-cap-webbapp/static/js/3.2d135ef2.chunk.js",
+    "static/js/3.2d135ef2.chunk.js.map": "/github.io/time-cap-webbapp/static/js/3.2d135ef2.chunk.js.map",
+    "index.html": "/github.io/time-cap-webbapp/index.html",
+    "static/css/main.22aa8e7d.chunk.css.map": "/github.io/time-cap-webbapp/static/css/main.22aa8e7d.chunk.css.map",
+    "static/js/2.4ff0172e.chunk.js.LICENSE.txt": "/github.io/time-cap-webbapp/static/js/2.4ff0172e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57e09f36.js",
+    "static/js/2.4ff0172e.chunk.js",
+    "static/css/main.22aa8e7d.chunk.css",
+    "static/js/main.21bf4a69.chunk.js"
+  ]
+}
