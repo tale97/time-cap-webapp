@@ -21,16 +21,19 @@ export default function ActivityCard({ activitySpecification }) {
         isActive ? `background-${color}` : `light-background-${color}`
       }`}
     >
-      <div className="activity-card-title">{name}</div>
-      <div className="activity-card-subheadline">{`${type} • ${formatDuration(
-        duration
-      )} • ${period}`}</div>
+      <div className={`activity-card-title ${isActive ? "" : "black-text"}`}>
+        {name}
+      </div>
+      <div
+        className={`activity-card-subheadline ${isActive ? "" : "black-text"}`}
+      >{`${type} • ${formatDuration(duration)} • ${period}`}</div>
       <div className="activity-card-empty-space"></div>
       <div>
         <StopWatch
           duration={duration}
           color={color}
           setIsActive={setCardActiveStatus}
+          isActive={isActive}
         />
       </div>
     </div>

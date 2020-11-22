@@ -9,7 +9,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activities: [],
       activityCards: [],
     };
   }
@@ -21,15 +20,9 @@ class App extends React.Component {
   }
 
   addActivityCard = (activityCard) => {
-    console.log(`new list ${this.state.activityCards}`);
     this.setState({
       activityCards: this.state.activityCards.concat([activityCard]),
     });
-  };
-
-  addActivity = () => {
-    var activities = this.state.activities.concat("new work");
-    this.setState({ activities: activities });
   };
 
   render() {
@@ -51,10 +44,7 @@ class App extends React.Component {
             <ActivityCards activityCards={this.state.activityCards} />
           </Grid>
 
-          <AppBarBottom
-            addActivity={this.addActivity}
-            addActivityCard={this.addActivityCard}
-          />
+          <AppBarBottom addActivityCard={this.addActivityCard} />
         </Grid>
       </div>
     );

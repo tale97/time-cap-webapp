@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .activity-card {
   display: flex;
   flex-direction: column;
@@ -43,7 +45,6 @@
   color: white;
 }
 
-.content {
-  // background: red;
-  opacity: 1;
+.black-text {
+  color: $text-color !important;
 }

@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   colorPrimary: {
     // backgroundColor: "#F29D68",
     backgroundColor: (props) => {
-      const color = reformatColorString(props.color);
+      const color = props.reformatColorString(props.color);
       return LightenDarkenColor(COLORS[color], 30);
     },
   },
@@ -17,41 +17,17 @@ const useStyles = makeStyles({
   },
   colorSecondary: {
     backgroundColor: (props) => {
-      const color = reformatColorString(props.color);
+      const color = props.reformatColorString(props.color);
       return LightenDarkenColor(COLORS[color], 30);
     },
   },
   barColorSecondary: {
     backgroundColor: (props) => {
-      const color = reformatColorString(props.color);
+      const color = props.reformatColorString(props.color);
       return COLORS[color];
     },
   },
 });
-
-const reformatColorString = (colorString) => {
-  let indicesOfCharacterToCapitalize = [];
-  let newString = colorString;
-  for (var i = 0; i < colorString.length; i++) {
-    if (colorString[i] === "-") {
-      indicesOfCharacterToCapitalize.push(i + 1);
-    }
-  }
-  for (var idx of indicesOfCharacterToCapitalize) {
-    newString = capitalizeStringAtIndex(newString, idx);
-  }
-  newString = newString.replace(/-/gi, "");
-  return newString;
-};
-
-const capitalizeStringAtIndex = (string, idx) => {
-  const stringBeforeIdx = string.slice(0, idx);
-  const stringAFterIdx = string.slice(idx + 1, string.length);
-  const capitalizedCharacter = string[idx].toUpperCase();
-  let newString = stringBeforeIdx.concat(capitalizedCharacter);
-  newString = newString.concat(stringAFterIdx);
-  return newString;
-};
 
 // https://css-tricks.com/snippets/javascript/lighten-darken-color/
 function LightenDarkenColor(col, amt) {
