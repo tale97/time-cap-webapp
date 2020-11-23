@@ -33,13 +33,11 @@ class App extends React.Component {
   };
 
   updateActivityRunningDuration = (activity, runningDuration) => {
-    console.log("updating running duration");
-    console.log(activity);
-    console.log(runningDuration);
+    console.log("activity", activity);
+    console.log("Duration", runningDuration);
+    console.log("_________________________");
     const { activityCards } = this.state;
     const idx = this.indexOfActivity(activity);
-    // let activityCopy = JSON.parse(JSON.stringify(activityCards[idx]))
-    // activityCopy.runningDuration = runningDuration;
     let activityCardsCopy = JSON.parse(JSON.stringify(activityCards));
     activityCardsCopy[idx].runningDuration = runningDuration;
 
@@ -48,19 +46,22 @@ class App extends React.Component {
 
   indexOfActivity = (activity) => {
     const { activityCards } = this.state;
+    console.log("in activityCards", activityCards);
     for (var i = 0; i < activityCards.length; i++) {
+      console.log(i);
       let curActivity = activityCards[i];
       if (
         curActivity.name === activity.name &&
         curActivity.color === activity.color &&
         curActivity.period === activity.period &&
-        curActivity.duration === activity.duration &&
+        // curActivity.duration === activity.duration &&
         curActivity.type === activity.type
       ) {
         return i;
       }
     }
     // if can't find activity
+    console.log("error: can't find activity", activity);
     return -1;
   };
 
@@ -121,8 +122,6 @@ class App extends React.Component {
             <ActivityCards
               activityCards={activityCards}
               removeActivity={this.removeActivity}
-              modifyActivity={this.modifyActivity}
-              isCardCreationDialogOpen={isCardCreationDialogOpen}
               setIsCardCreationDialogOpen={this.setIsCardCreationDialogOpen}
               setTargetedActivity={this.setTargetedActivity}
               updateActivityRunningDuration={this.updateActivityRunningDuration}

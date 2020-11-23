@@ -48,9 +48,11 @@ export default function ActivityCard({
             {name}
           </div>
           <div className="activity-card-button">
-            <IconButton>
-              <MoreVertIcon onClick={() => setIsOpenCardMenu(true)} />
-            </IconButton>
+            {isActive ? null : (
+              <IconButton>
+                <MoreVertIcon onClick={() => setIsOpenCardMenu(true)} />
+              </IconButton>
+            )}
           </div>
         </div>
         <div

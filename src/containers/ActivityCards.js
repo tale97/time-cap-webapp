@@ -8,8 +8,6 @@ class ActivityCards extends React.Component {
     const {
       activityCards,
       removeActivity,
-      modifyActivity,
-      isCardCreationDialogOpen,
       setIsCardCreationDialogOpen,
       setTargetedActivity,
       updateActivityRunningDuration,
@@ -21,8 +19,6 @@ class ActivityCards extends React.Component {
           <ActivityCard
             activitySpecification={activityCard}
             removeActivity={removeActivity}
-            modifyActivity={modifyActivity}
-            isCardCreationDialogOpen={isCardCreationDialogOpen}
             setIsCardCreationDialogOpen={setIsCardCreationDialogOpen}
             setTargetedActivity={setTargetedActivity}
             updateActivityRunningDuration={updateActivityRunningDuration}

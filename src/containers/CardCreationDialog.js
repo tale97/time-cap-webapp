@@ -84,8 +84,6 @@ export default function CardCreationDialog({
   };
 
   const onClickingSaveButton = () => {
-    console.log("saving button");
-    console.log(targetedActivity);
     const newCardSpecification = {
       type: type,
       name: name,

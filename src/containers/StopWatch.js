@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
 });
 
-// i.e reformat "orange-brown" to "orangeBrown"
+// i.e reformat "any-string" to "anyString"
 const reformatColorString = (colorString) => {
   const capitalizeStringAtIndex = (string, idx) => {
     const stringBeforeIdx = string.slice(0, idx);
@@ -62,7 +62,6 @@ export default function StopWatch(props) {
   } = props;
   const classes = useStyles(props);
   const [seconds, setSeconds] = useState(activitySpecification.runningDuration);
-  // const [seconds, setSeconds] = useState(0);
 
   function startTimer() {
     setIsTimerActive(true);
@@ -74,22 +73,29 @@ export default function StopWatch(props) {
   }
 
   useEffect(() => {
+    // console.log("componentDidMount");
+    // console.log(activitySpecification.runningDuration);
+    // console.log(activitySpecification);
+    // console.log(activitySpecification.runningDuration);
+  }, []);
+
+  useEffect(() => {
+    // console.log("DEBUG", activitySpecification);
     let interval = null;
     if (isTimerActive) {
       interval = setInterval(() => {
         setSeconds((seconds) => seconds + 1);
+        updateActivityRunningDuration(activitySpecification, seconds + 1);
       }, 1000);
     } else if (!isTimerActive && seconds !== 0) {
       clearInterval(interval);
     }
-    // clear interval every time `userEffect` runs
     return () => clearInterval(interval);
   }, [
-    isTimerActive,
     seconds,
+    isTimerActive,
     activitySpecification,
     updateActivityRunningDuration,
-    // activitySpecification.runningDuration,
   ]);
 
   const setTimerControl = (classes) => {
