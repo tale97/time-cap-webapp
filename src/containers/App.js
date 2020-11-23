@@ -1,3 +1,5 @@
+// https://daveceddia.com/why-not-modify-react-state-directly/
+
 import React from "react";
 import "../styles/App.scss";
 import ActivityCards from "./ActivityCards";

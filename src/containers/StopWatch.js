@@ -1,6 +1,6 @@
 // https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import "../styles/ActivityCard.scss";
 import { IconButton, makeStyles } from "@material-ui/core";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
@@ -51,7 +51,7 @@ const reformatColorString = (colorString) => {
   return newString;
 };
 
-export default function StopWatch(props) {
+const StopWatch = memo((props) => {
   const {
     duration,
     color,
@@ -73,14 +73,10 @@ export default function StopWatch(props) {
   }
 
   useEffect(() => {
-    // console.log("componentDidMount");
-    // console.log(activitySpecification.runningDuration);
-    // console.log(activitySpecification);
-    // console.log(activitySpecification.runningDuration);
+    console.log("componentDidMount");
   }, []);
 
   useEffect(() => {
-    // console.log("DEBUG", activitySpecification);
     let interval = null;
     if (isTimerActive) {
       interval = setInterval(() => {
@@ -118,6 +114,10 @@ export default function StopWatch(props) {
   let timerMinutes = ("0" + (Math.floor(seconds / 60) % 60)).slice(-2);
   let timerHours = ("0" + Math.floor(seconds / 3600)).slice(-2);
 
+  const convertDurationToSeconds = (duration) => {
+    return duration[0] * 60 * 60 + duration[1] * 60 + duration[2];
+  };
+
   return (
     <div className="stopwatch">
       <div className="stopwatch-button">{setTimerControl(classes)}</div>
@@ -128,7 +128,7 @@ export default function StopWatch(props) {
       >
         {timerHours}:{timerMinutes}:{timerSeconds}
         <TimeProgressBar
-          duration={duration}
+          duration={convertDurationToSeconds(duration)}
           timerTime={seconds}
           timerOn={isTimerActive}
           color={color}
@@ -137,4 +137,6 @@ export default function StopWatch(props) {
       </div>
     </div>
   );
-}
+});
+
+export default StopWatch;

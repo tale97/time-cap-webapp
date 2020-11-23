@@ -3,7 +3,7 @@ import "../styles/ActivityCard.scss";
 import Grid from "@material-ui/core/Grid";
 import ActivityCard from "./ActivityCard";
 
-class ActivityCards extends React.Component {
+class ActivityCards extends React.PureComponent {
   render() {
     const {
       activityCards,
