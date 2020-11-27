@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { COLORS } from "../constants";
+import { COLORS } from "../../constants";
 
 // https://github.com/mui-org/material-ui/issues/12858
 const useStyles = makeStyles({

@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/16232774/html-put-a-fixed-text-on-an-input-text
 
 import React, { useState, useEffect } from "react";
-import "../../styles/DurationOption.scss";
+import "./DurationInput.scss";
 
 export default function DurationInput({ setDuration }) {
   const [hour, setHour] = useState(0);

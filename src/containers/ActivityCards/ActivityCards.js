@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/ActivityCard.scss";
+import "../ActivityCard/ActivityCard.scss";
 import Grid from "@material-ui/core/Grid";
-import ActivityCard from "./ActivityCard";
+import ActivityCard from "../ActivityCard/ActivityCard";
 
 class ActivityCards extends React.Component {
   render() {

@@ -4,12 +4,12 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import Slide from "@material-ui/core/Slide";
 import { makeStyles } from "@material-ui/core/styles";
-import "../styles/CardTypeSelectDialog.scss";
+import "./CardTypeSelectDialog.scss";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import TimerIcon from "@material-ui/icons/Timer";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
-import CardCreationDialog from "./CardCreationDialog";
+import CardCreationDialog from "../CardCreationDialog/CardCreationDialog";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

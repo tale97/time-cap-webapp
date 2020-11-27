@@ -9,7 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import CardTypeSelectDialog from "./CardTypeSelectDialog";
+import CardTypeSelectDialog from "../CardTypeSelectDialog/CardTypeSelectDialog";
 
 const useStyles = makeStyles((theme) => ({
   text: {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import "../../styles/ColorOption.scss";
+import "./ColorOption.scss";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
 

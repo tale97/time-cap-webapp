@@ -1,10 +1,10 @@
 // https://daveceddia.com/why-not-modify-react-state-directly/
 
 import React from "react";
-import "../styles/App.scss";
-import ActivityCards from "./ActivityCards";
-import AppBarTop from "./AppBarTop";
-import AppBarBottom from "./AppBarBottom";
+import "./App.scss";
+import ActivityCards from "../ActivityCards/ActivityCards";
+import AppBarTop from "../AppBarTop/AppBarTop";
+import AppBarBottom from "../AppBarBottom/AppBarBottom";
 import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
 

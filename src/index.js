@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.scss";
-import App from "./containers/App";
+import App from "./containers/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { Provider } from "react-redux";

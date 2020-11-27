@@ -1,12 +1,12 @@
 // https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
 import React, { useState, useEffect } from "react";
-import "../styles/ActivityCard.scss";
+import "../ActivityCard/ActivityCard.scss";
 import { IconButton, makeStyles } from "@material-ui/core";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
-import TimeProgressBar from "./TimeProgressBar";
-import { COLORS } from "../constants";
+import TimeProgressBar from "../TimeProgressBar/TimeProgressBar";
+import { COLORS } from "../../constants";
 
 const useStyles = makeStyles({
   buttonIcon: {

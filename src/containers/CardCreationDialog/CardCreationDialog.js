@@ -11,7 +11,7 @@ import Slide from "@material-ui/core/Slide";
 import TypeOption from "./CardCreationDialogSections/TypeOption";
 import PeriodOption from "./CardCreationDialogSections/PeriodOption";
 import NameInput from "./CardCreationDialogSections/NameInput";
-import "../styles/CardCreationDialog.scss";
+import "./CardCreationDialog.scss";
 import ColorOption from "./CardCreationDialogSections/ColorOption";
 import DurationInput from "./CardCreationDialogSections/DurationInput";
 

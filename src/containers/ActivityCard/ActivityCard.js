@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import StopWatch from "./StopWatch";
-import "../styles/ActivityCard.scss";
-import "../styles/ColorOption.scss";
+import StopWatch from "../StopWatch/StopWatch";
+import "./ActivityCard.scss";
+import "../CardCreationDialog/CardCreationDialogSections/ColorOption.scss";
 import { IconButton } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import CloseIcon from "@material-ui/icons/Close";
