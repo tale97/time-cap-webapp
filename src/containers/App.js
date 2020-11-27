@@ -1,9 +1,18 @@
+// https://daveceddia.com/why-not-modify-react-state-directly/
+
 import React from "react";
 import "../styles/App.scss";
 import ActivityCards from "./ActivityCards";
 import AppBarTop from "./AppBarTop";
 import AppBarBottom from "./AppBarBottom";
 import Grid from "@material-ui/core/Grid";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDipspatchToProps = {};
 
 class App extends React.Component {
   constructor(props) {
@@ -141,4 +150,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDipspatchToProps)(App);

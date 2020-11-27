@@ -4,6 +4,21 @@ import "./styles/index.scss";
 import App from "./containers/App";
 import reportWebVitals from "./reportWebVitals";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+
+function counterReducer(state = { value: 0 }, action) {
+  switch (action.type) {
+    case "counter/incremented":
+      return { value: state.value + 1 };
+    case "counter/decremented":
+      return { value: state.value - 1 };
+    default:
+      return state;
+  }
+}
+
+let store = createStore(counterReducer);
 
 const theme = createMuiTheme({
   palette: {
@@ -13,10 +28,14 @@ const theme = createMuiTheme({
   },
 });
 
+store.subscribe(() => console.log(store.getState()));
+
 ReactDOM.render(
-  <MuiThemeProvider theme={theme}>
-    <App />
-  </MuiThemeProvider>,
+  <Provider store={store}>
+    <MuiThemeProvider theme={theme}>
+      <App />
+    </MuiThemeProvider>
+  </Provider>,
   document.getElementById("root")
 );
 
