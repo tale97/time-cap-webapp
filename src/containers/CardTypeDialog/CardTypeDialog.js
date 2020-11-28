@@ -4,12 +4,13 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import Slide from "@material-ui/core/Slide";
 import { makeStyles } from "@material-ui/core/styles";
-import "./CardTypeSelectDialog.scss";
+import "./CardTypeDialog.scss";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import TimerIcon from "@material-ui/icons/Timer";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
 import CardCreationDialog from "../CardCreationDialog/CardCreationDialog";
+import { useSelector, useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -22,7 +23,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CardTypeSelectDialog({
+export default function CardTypeDialog({
   targetedActivity,
   addActivityCard,
   modifyActivity,
@@ -32,10 +33,14 @@ export default function CardTypeSelectDialog({
   setIsCardCreationDialogOpen,
 }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const cardTypeSelector = useSelector((state) => state.cardType);
 
   const openCardCreationDialog = () => {
     setIsCardCreationDialogOpen(true);
     closeCardTypeSelectDialog();
+    dispatch({ type: "cardCreation/CardTypeSelected" });
+    console.log("Debug", cardTypeSelector);
   };
 
   const cardType = (cardTypeObject) => {

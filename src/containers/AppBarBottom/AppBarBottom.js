@@ -9,7 +9,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import CardTypeSelectDialog from "../CardTypeSelectDialog/CardTypeSelectDialog";
+import CardTypeDialog from "../CardTypeDialog/CardTypeDialog";
+import { useSelector, useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -50,6 +51,8 @@ export default function AppBarBottom({
 }) {
   const classes = useStyles();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const cardTypeSelector = useSelector((state) => state.cardType);
+  const dispatch = useDispatch();
 
   const openCardTypeSelectDialog = () => {
     setIsDialogOpen(true);
@@ -57,6 +60,8 @@ export default function AppBarBottom({
 
   const closeCardTypeSelectDialog = () => {
     setIsDialogOpen(false);
+    dispatch({ type: "cardCreation/cardTypeDialogOpened" });
+    console.log("debug 2", cardTypeSelector);
   };
 
   return (
@@ -71,7 +76,7 @@ export default function AppBarBottom({
             color="secondary"
             aria-label="add"
             className={classes.fabButton}
-            onClick={() => setIsDialogOpen(true)}
+            onClick={openCardTypeSelectDialog}
           >
             <AddIcon />
           </Fab>
@@ -84,7 +89,7 @@ export default function AppBarBottom({
           </IconButton>
         </Toolbar>
       </AppBar>
-      <CardTypeSelectDialog
+      <CardTypeDialog
         isDialogOpen={isDialogOpen}
         openCardTypeSelectDialog={openCardTypeSelectDialog}
         closeCardTypeSelectDialog={closeCardTypeSelectDialog}

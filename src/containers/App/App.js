@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./App.scss";
-import ActivityCards from "../ActivityCards/ActivityCards";
+import ActivityCardList from "../ActivityCardList/ActivityCardList";
 import AppBarTop from "../AppBarTop/AppBarTop";
 import AppBarBottom from "../AppBarBottom/AppBarBottom";
 import Grid from "@material-ui/core/Grid";
@@ -120,7 +120,7 @@ class App extends React.Component {
           className="App"
           direction="column"
           justify="center"
-          spacing="2"
+          spacing={2}
         >
           <Grid className="nav-bar" item>
             <AppBarTop />
@@ -128,7 +128,7 @@ class App extends React.Component {
           <Grid className="date-bar" item></Grid>
           <Grid className="tag-bar" item></Grid>
           <Grid className="cards-area" item>
-            <ActivityCards
+            <ActivityCardList
               activityCards={activityCards}
               removeActivity={this.removeActivity}
               setIsCardCreationDialogOpen={this.setIsCardCreationDialogOpen}

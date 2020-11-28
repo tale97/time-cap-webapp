@@ -5,20 +5,15 @@ import App from "./containers/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { cardTypeSelectionReducer } from "./containers/CardTypeDialog/CardTypeDialogReducers";
+import logger from "redux-logger";
 
-function counterReducer(state = { value: 0 }, action) {
-  switch (action.type) {
-    case "counter/incremented":
-      return { value: state.value + 1 };
-    case "counter/decremented":
-      return { value: state.value - 1 };
-    default:
-      return state;
-  }
-}
+const rootReducer = combineReducers({
+  cardTypeSelectionReducer,
+});
 
-let store = createStore(counterReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 const theme = createMuiTheme({
   palette: {
@@ -27,8 +22,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -31,7 +31,7 @@ class ActivityCards extends React.Component {
         className="action-cards-container"
         container
         justify="center"
-        spacing="2"
+        spacing={2}
       >
         {activityCardList}
       </Grid>
