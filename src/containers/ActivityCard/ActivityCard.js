@@ -49,8 +49,8 @@ export default function ActivityCard({
           </div>
           <div className="activity-card-button">
             {isActive ? null : (
-              <IconButton>
-                <MoreVertIcon onClick={() => setIsOpenCardMenu(true)} />
+              <IconButton onClick={() => setIsOpenCardMenu(true)}>
+                <MoreVertIcon />
               </IconButton>
             )}
           </div>
@@ -91,8 +91,8 @@ export default function ActivityCard({
               }`}
             ></div>
             <div className="activity-card-button">
-              <IconButton>
-                <CloseIcon onClick={() => setIsOpenCardMenu(false)} />
+              <IconButton onClick={() => setIsOpenCardMenu(false)}>
+                <CloseIcon />
               </IconButton>
             </div>
           </div>

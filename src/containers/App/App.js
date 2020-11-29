@@ -32,8 +32,6 @@ class App extends React.Component {
   };
 
   setTargetedActivity = (activity) => {
-    console.log("set targted activity to");
-    console.log(activity);
     this.setState({ targetedActivity: activity });
   };
 
@@ -42,9 +40,6 @@ class App extends React.Component {
   };
 
   updateActivityRunningDuration = (activity, runningDuration) => {
-    console.log("activity", activity);
-    console.log("Duration", runningDuration);
-    console.log("_________________________");
     const { activityCards } = this.state;
     const idx = this.indexOfActivity(activity);
     let activityCardsCopy = JSON.parse(JSON.stringify(activityCards));
@@ -55,9 +50,7 @@ class App extends React.Component {
 
   indexOfActivity = (activity) => {
     const { activityCards } = this.state;
-    console.log("in activityCards", activityCards);
     for (var i = 0; i < activityCards.length; i++) {
-      console.log(i);
       let curActivity = activityCards[i];
       if (
         curActivity.name === activity.name &&

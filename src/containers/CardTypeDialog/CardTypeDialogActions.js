@@ -13,7 +13,7 @@ const selectCountActivity = {
   payload: "count",
 };
 
-export default {
+export {
   selectTimeTrackingActivity,
   selectCheckOffActivity,
   selectCountActivity,

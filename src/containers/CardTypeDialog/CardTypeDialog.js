@@ -11,6 +11,12 @@ import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
 import CardCreationDialog from "../CardCreationDialog/CardCreationDialog";
 import { useSelector, useDispatch } from "react-redux";
+import {
+  selectTimeTrackingActivity,
+  selectCheckOffActivity,
+  selectCountActivity,
+} from "./CardTypeDialogActions";
+import { openedCardTypeDialog } from "../AppBarBottom/AppBarBottomActions";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -34,18 +40,34 @@ export default function CardTypeDialog({
 }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const cardTypeSelector = useSelector((state) => state.cardType);
+  const cardTypeSelector = useSelector((state) => {
+    return state.cardTypeSelection.cardType;
+  });
 
-  const openCardCreationDialog = () => {
+  const openCardCreationDialog = (cardType) => {
     setIsCardCreationDialogOpen(true);
     closeCardTypeSelectDialog();
-    dispatch({ type: "cardCreation/CardTypeSelected" });
-    console.log("Debug", cardTypeSelector);
+    switch (cardType) {
+      case "Time tracking activity":
+        dispatch(selectTimeTrackingActivity);
+        break;
+      case "Check off activity":
+        dispatch(selectCheckOffActivity);
+        break;
+      case "Count activity":
+        dispatch(selectCountActivity);
+        break;
+      default:
+        console.log("Error: unexpected card type");
+    }
   };
 
   const cardType = (cardTypeObject) => {
     return (
-      <div className="cardType-content" onClick={openCardCreationDialog}>
+      <div
+        className="cardType-content"
+        onClick={() => openCardCreationDialog(cardTypeObject.title)}
+      >
         <div className={`cardType-icon ${cardTypeObject.iconColor}`}>
           {cardTypeObject.icon}
         </div>

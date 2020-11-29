@@ -73,14 +73,6 @@ export default function StopWatch(props) {
   }
 
   useEffect(() => {
-    // console.log("componentDidMount");
-    // console.log(activitySpecification.runningDuration);
-    // console.log(activitySpecification);
-    // console.log(activitySpecification.runningDuration);
-  }, []);
-
-  useEffect(() => {
-    // console.log("DEBUG", activitySpecification);
     let interval = null;
     if (isTimerActive) {
       interval = setInterval(() => {
