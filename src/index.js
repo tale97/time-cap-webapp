@@ -6,13 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { cardTypeSelectionReducer } from "./containers/CardTypeDialog/CardTypeDialogReducers";
-import { appBarBottomReducer } from "./containers/AppBarBottom/AppBarBottomReducers";
+import { cardTypeDialogReducer } from "./containers/CardTypeDialog/CardTypeDialogReducers";
 import logger from "redux-logger";
 
 const rootReducer = combineReducers({
-  cardTypeSelection: cardTypeSelectionReducer,
-  appBarBottom: appBarBottomReducer,
+  cardTypeDialog: cardTypeDialogReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(logger));

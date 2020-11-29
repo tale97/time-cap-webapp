@@ -1,20 +1,29 @@
-const selectTimeTrackingActivity = {
+const selectedTimeTrackingActivity = {
   type: "cardCreation/cardTypeSelected",
   payload: "timeTracking",
 };
 
-const selectCheckOffActivity = {
+const selectedCheckOffActivity = {
   type: "cardCreation/cardTypeSelected",
   payload: "checkOff",
 };
 
-const selectCountActivity = {
+const selectedCountActivity = {
   type: "cardCreation/cardTypeSelected",
   payload: "count",
 };
 
+// sample action creator
+const openedCardTypeDialog = (isOpen) => {
+  return {
+    type: "cardCreation/cardTypeDialogOpened",
+    payload: isOpen,
+  };
+};
+
 export {
-  selectTimeTrackingActivity,
-  selectCheckOffActivity,
-  selectCountActivity,
+  selectedTimeTrackingActivity,
+  selectedCheckOffActivity,
+  selectedCountActivity,
+  openedCardTypeDialog,
 };

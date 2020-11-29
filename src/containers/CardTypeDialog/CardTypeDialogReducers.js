@@ -3,10 +3,7 @@ const cardTypeInitialState = {
   isCardTypeDialogOpen: false,
 };
 
-const cardTypeSelectionReducer = (
-  state = cardTypeInitialState,
-  action = {}
-) => {
+const cardTypeDialogReducer = (state = cardTypeInitialState, action = {}) => {
   switch (action.type) {
     case "cardCreation/cardTypeSelected":
       return {
@@ -17,11 +14,11 @@ const cardTypeSelectionReducer = (
     case "cardCreation/cardTypeDialogOpened":
       return {
         ...state,
-        isCardTypeDialogOpen: true,
+        isCardTypeDialogOpen: action.payload,
       };
     default:
       return state;
   }
 };
 
-export { cardTypeSelectionReducer };
+export { cardTypeDialogReducer };

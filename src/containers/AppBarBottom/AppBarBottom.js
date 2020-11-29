@@ -10,8 +10,8 @@ import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import CardTypeDialog from "../CardTypeDialog/CardTypeDialog";
-import { useSelector, useDispatch } from "react-redux";
-import { openedCardTypeSelectDialog } from "./AppBarBottomActions";
+import { useDispatch } from "react-redux";
+import { openedCardTypeDialog } from "../CardTypeDialog/CardTypeDialogActions";
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -52,18 +52,16 @@ export default function AppBarBottom({
 }) {
   const classes = useStyles();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const cardTypeSelector = useSelector(
-    (state) => state.appBarBottom.isCardCreationDialogOpen
-  );
   const dispatch = useDispatch();
 
   const openCardTypeSelectDialog = () => {
     setIsDialogOpen(true);
-    dispatch(openedCardTypeSelectDialog);
+    dispatch(openedCardTypeDialog(true));
   };
 
   const closeCardTypeSelectDialog = () => {
     setIsDialogOpen(false);
+    dispatch(openedCardTypeDialog(false));
   };
 
   return (

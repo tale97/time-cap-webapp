@@ -12,11 +12,11 @@ import ExposurePlus1Icon from "@material-ui/icons/ExposurePlus1";
 import CardCreationDialog from "../CardCreationDialog/CardCreationDialog";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  selectTimeTrackingActivity,
-  selectCheckOffActivity,
-  selectCountActivity,
+  selectedTimeTrackingActivity,
+  selectedCheckOffActivity,
+  selectedCountActivity,
+  openedCardTypeDialog,
 } from "./CardTypeDialogActions";
-import { openedCardTypeDialog } from "../AppBarBottom/AppBarBottomActions";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -41,7 +41,7 @@ export default function CardTypeDialog({
   const classes = useStyles();
   const dispatch = useDispatch();
   const cardTypeSelector = useSelector((state) => {
-    return state.cardTypeSelection.cardType;
+    return state.cardTypeDialog.cardType;
   });
 
   const openCardCreationDialog = (cardType) => {
@@ -49,13 +49,13 @@ export default function CardTypeDialog({
     closeCardTypeSelectDialog();
     switch (cardType) {
       case "Time tracking activity":
-        dispatch(selectTimeTrackingActivity);
+        dispatch(selectedTimeTrackingActivity);
         break;
       case "Check off activity":
-        dispatch(selectCheckOffActivity);
+        dispatch(selectedCheckOffActivity);
         break;
       case "Count activity":
-        dispatch(selectCountActivity);
+        dispatch(selectedCountActivity);
         break;
       default:
         console.log("Error: unexpected card type");
