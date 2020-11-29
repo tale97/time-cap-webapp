@@ -37,6 +37,7 @@ export default function RadioButtonSystem({ radioOptionsInString, setType }) {
           isCheck={radioOptionInString === checkedRadioOption}
           setCheckedRadioOption={setCheckedRadioOption}
           setType={setType}
+          key={radioOptionInString}
         />
       );
     });

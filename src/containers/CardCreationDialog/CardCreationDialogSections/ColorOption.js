@@ -56,11 +56,13 @@ export default function ColorOption({ setColor }) {
       <CheckCircleIcon
         className={`${classes.colorIcon} ${color}`}
         onClick={onClickColorCircle}
+        key={color}
       />
     ) : (
       <RadioButtonCheckedIcon
         className={`${classes.colorIcon} ${color}`}
         onClick={onClickColorCircle}
+        key={color}
       />
     );
   };
@@ -72,6 +74,7 @@ export default function ColorOption({ setColor }) {
       <RadioButtonUncheckedIcon
         className={`${classes.colorIcon} ${color}`}
         onClick={onClickColorCircle}
+        key={color}
       />
     );
   });

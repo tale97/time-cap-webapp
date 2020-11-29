@@ -10,7 +10,7 @@ import { cardTypeSelectionReducer } from "./containers/CardTypeDialog/CardTypeDi
 import logger from "redux-logger";
 
 const rootReducer = combineReducers({
-  cardTypeSelectionReducer,
+  cardTypeSelection: cardTypeSelectionReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(logger));

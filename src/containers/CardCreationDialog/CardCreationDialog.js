@@ -43,7 +43,7 @@ export default function CardCreationDialog({
   const [duration, setDuration] = useState(null);
   const [period, setPeriod] = useState(null);
 
-  const activitySpecifics = [
+  const activitySpecs = [
     {
       title: "Type",
       body: <TypeOption setType={setType} />,
@@ -66,19 +66,17 @@ export default function CardCreationDialog({
     },
   ];
 
-  const createDialogSections = (activitySpecifics) => {
-    return activitySpecifics.map((activitySpecific) => {
-      return <div>{createDialogSection(activitySpecific)}</div>;
+  const createDialogSections = (activitySpecs) => {
+    return activitySpecs.map((spec) => {
+      return <div key={spec.title}>{createDialogSection(spec)}</div>;
     });
   };
 
-  const createDialogSection = (activitySpecifics) => {
+  const createDialogSection = (activitySpec, key) => {
     return (
       <div>
-        <div className="activity-specs-title">{activitySpecifics.title}</div>
-        <div className="activity-specs-configuration">
-          {activitySpecifics.body}
-        </div>
+        <div className="activity-specs-title">{activitySpec.title}</div>
+        <div className="activity-specs-configuration">{activitySpec.body}</div>
       </div>
     );
   };
@@ -127,7 +125,7 @@ export default function CardCreationDialog({
           </Toolbar>
         </AppBar>
         <div className="CardCreationDialog-upper-empty-space"></div>
-        {createDialogSections(activitySpecifics)}
+        {createDialogSections(activitySpecs)}
       </Dialog>
     </div>
   );
